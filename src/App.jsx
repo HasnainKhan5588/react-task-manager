@@ -48,7 +48,9 @@ function App() {
       if (filter === "active") return !task.completed;
       return true;
     })
-    .filter((task) => task.text.toLowerCase().includes(search.toLowerCase()));
+    .filter((task) =>
+      task?.text?.toLowerCase().includes(search?.toLowerCase() || ""),
+    );
   const handleEdit = (id, newTask) => {
     setTasks((prev) =>
       prev.map((task) => (task.id === id ? { ...task, text: newTask } : task)),

@@ -13,19 +13,19 @@ function TaskForm({ handleAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-row gap-2">
         <input
           type="text"
           placeholder="Add a new task..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="w-full sm:flex-1 p-3 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+          className="  p-3 flex-1 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
         />
 
         <button
           type="submit"
           disabled={!input.trim()}
-          className="w-full sm:w-auto px-5 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 disabled:bg-indigo-300 text-white font-medium transition-all duration-200"
+          className="  px-5 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 disabled:bg-indigo-300 text-white font-medium transition-all duration-200"
         >
           Add
         </button>

@@ -13,30 +13,32 @@ function TaskItem({ handleDell, task, toggleCompleted, handleEdit }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-white/20 hover:bg-white/30 transition-all duration-200">
       {isEditing ? (
-        <div className="flex w-full gap-2">
+        <div className="flex flex-col sm:flex-row w-full gap-1">
           <input
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
             className="flex-1 p-2 rounded-lg bg-white/30 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-white"
           />
-          <button
-            onClick={handleSave}
-            className="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium transition"
-          >
-            Save
-          </button>
-          <button
-            onClick={() => setIsEditing(false)}
-            className="px-4 py-2 rounded-lg bg-gray-400/40 hover:bg-gray-400/60 text-white text-sm transition"
-          >
-            Cancel
-          </button>
+          <div className="flex gap-1 justify-center ">
+            <button
+              onClick={handleSave}
+              className="px-4 py-2 w-40 sm:w-fit rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium transition"
+            >
+              Save
+            </button>
+            <button
+              onClick={() => setIsEditing(false)}
+              className="px-4 w-40 sm:w-fit py-2 rounded-lg bg-gray-400/40 hover:bg-gray-400/60 text-white text-sm transition"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       ) : (
-        <>
+        <div className="flex justify-between items-center w-full">
           <div
             onClick={() => toggleCompleted(task.id)}
-            className={`flex items-center gap-3 flex-1 cursor-pointer select-none ${
+            className={`flex items-center cursor-pointer select-none ${
               task.completed ? "line-through text-gray-400" : "text-white"
             }`}
           >
@@ -46,7 +48,7 @@ function TaskItem({ handleDell, task, toggleCompleted, handleEdit }) {
               )}
             </div>
 
-            <p className="break-words">{task.text}</p>
+            <p className="wrap-break-word ">{task.text}</p>
           </div>
 
           <div className="flex gap-2">
@@ -64,7 +66,7 @@ function TaskItem({ handleDell, task, toggleCompleted, handleEdit }) {
               Delete
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
