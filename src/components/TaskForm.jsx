@@ -19,7 +19,7 @@ function TaskForm({ handleAdd }) {
           placeholder="Add a new task..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="  p-3 flex-1 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+          className="p-3 flex-1 rounded-xl w-20 bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all"
         />
 
         <button
